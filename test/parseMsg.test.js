@@ -8,4 +8,16 @@ describe('parseMsg function', () => {
 
     expect(result).toEqual(expected);
   });
+
+  it('takes a string that starts with @ and returns an object', () => {
+    const expected = {
+      command: 'dm',
+      arg: 'username',
+      text: 'This is a string',
+
+    };
+    const input = '@dm:username This is a string';
+    const result = parseMsg(input);
+    expect(result).toEqual(expected);
+  });
 });
