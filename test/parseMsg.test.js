@@ -14,10 +14,21 @@ describe('parseMsg function', () => {
       command: 'dm',
       arg: 'username',
       text: 'This is a string',
-
     };
     const input = '@dm:username This is a string';
     const result = parseMsg(input);
     expect(result).toEqual(expected);
   });
+
+  it('takes a string that starts with @ but no argument', () => {
+    const expected = {
+      command: 'all',
+      arg: undefined,
+      text: 'This is a string',
+    };
+    const input = '@all This is a string';
+    const result = parseMsg(input);
+    expect(result).toEqual(expected);
+  });
 });
+
