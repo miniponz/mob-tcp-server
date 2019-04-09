@@ -50,4 +50,13 @@ describe('ChatRoom class', () => {
     expect(chatRoom.getClient(client1.username)).toEqual(client1);
     expect(chatRoom.getClient(client2.username)).toEqual(client2);
   });
+
+  it('returns all clients', () => {
+    const client1 = {};
+    const client2 = {};
+    chatRoom.add(client1);
+    chatRoom.add(client2);  
+    const expected = [client1, client2];
+    expect(chatRoom.all()).toEqual(expected);
+  });
 });
