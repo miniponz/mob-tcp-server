@@ -27,4 +27,27 @@ describe('ChatRoom class', () => {
     expect(result).toEqual(client);
   });
 
+  it('renames a client', () => {
+    const client = {};
+    chatRoom.add(client);
+    const oldUsername = client.username;
+    const result = chatRoom.rename(oldUsername, 'Lavender');
+    
+    expect(result).toBe(true);
+    expect(client.username).toEqual('Lavender');
+    expect(chatRoom.getClient(oldUsername)).toBeFalsy();
+
+  });
+
+  it('returns false if new username is already in map', () => {
+    const client1 = {};
+    const client2 = {};
+    chatRoom.add(client1);
+    chatRoom.add(client2);
+    const result = chatRoom.rename(client1.username, client2.username);
+  
+    expect(result).toBeFalsy();
+    expect(chatRoom.getClient(client1.username)).toEqual(client1);
+    expect(chatRoom.getClient(client2.username)).toEqual(client2);
+  });
 });
