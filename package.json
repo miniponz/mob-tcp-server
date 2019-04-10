@@ -1,7 +1,6 @@
 {
   "name": "mob-tcp-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -28,5 +27,6 @@
   },
   "dependencies": {
     "shortid": "^2.2.14"
-  }
+  },
+  "description": ""
 }
